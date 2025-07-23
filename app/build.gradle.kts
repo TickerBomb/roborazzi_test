@@ -3,11 +3,12 @@ plugins {
     alias(libs.plugins.com.android.application)
     alias(libs.plugins.org.jetbrains.kotlin.android)
     alias(libs.plugins.roborazzi)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
     namespace = "com.github.takahirom.roborazzi.usage.examples"
-    compileSdk = 34
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.github.takahirom.roborazzi.usage.examples"
@@ -41,8 +42,9 @@ android {
     buildFeatures {
         compose = true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+    composeCompiler {
+        reportsDestination = layout.buildDirectory.dir("compose_compiler")
+        stabilityConfigurationFile = rootProject.layout.projectDirectory.file("stability_config.conf")
     }
     packaging {
         resources {
