@@ -35,7 +35,7 @@ class FirstRobolectricComposeTest {
         }
 
         composeRule
-            .onNode(hasText("Hello Robolectric!"))
+            .onNode(hasText("Hello Roborazzi!"))
             .captureRoboImage()
 
         composeRule
